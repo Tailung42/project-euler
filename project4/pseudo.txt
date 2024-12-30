@@ -1,15 +1,20 @@
-for n from 100 to 1000
-	for m from n + 1 to 1000
-		if m * n is a palindrome
-			if it is the first palindrome:
-				save it
-			else 
-				if greater than previous palindrome
-				update 
-print: 
+for n from 999 to 100 
+    for m from n to 100 (decreasing by 1)  # Start m from n to avoid duplicate pairs
+        product = n * m
+        if product is less than the greatest_palindrome found so far:
+            break  # No need to check smaller products
+        if isPalindrome(product):
+            if product is greater than the greatest_palindrome:
+                update greatest_palindrome
+                save n and m as the pair producing the palindrome
 
+if greatest_palindrome exists:
+    print greatest_palindrome and the pair (n, m)
+else:
+    print "No palindrome found"
 
 isPalindrome(num):
-	if string(num) is equal to reversed string(num)
-		return true
-	else return false
+    if string(num) == reversed string(num):
+        return true
+    else:
+        return false
