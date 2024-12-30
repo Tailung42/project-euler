@@ -1,0 +1,15 @@
+for n from 100 to 1000
+	for m from n + 1 to 1000
+		if m * n is a palindrome
+			if it is the first palindrome:
+				save it
+			else 
+				if greater than previous palindrome
+				update 
+print: 
+
+
+isPalindrome(num):
+	if string(num) is equal to reversed string(num)
+		return true
+	else return false
