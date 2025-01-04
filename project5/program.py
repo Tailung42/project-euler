@@ -1,7 +1,22 @@
+def main():
+    N = 4
+    lcm = N
+    for i in range(N-1 , 0, -1):
+        if lcm % i != 0:
+            lcm = find_lcm(lcm, i)
 
+    print(int(lcm))
+
+
+
+def find_lcm(num1, num2):
+    # O(1)
+    return (num1 * num2) / find_hcf(num1, num2)
 
 
 def find_hcf(num1, num2):
+    # the algorithm needs to be improved 
+    # timecomplexity is O(n):
     if num1 > num2:
         num1, num2 = num2, num1
     for i in range( num1, 0, -1):
@@ -9,3 +24,6 @@ def find_hcf(num1, num2):
             return i
         
 find_hcf(9, 3)
+
+if __name__ == "__main__":
+    main()
