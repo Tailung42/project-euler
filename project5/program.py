@@ -1,7 +1,8 @@
 def main():
-    N = 4
-    lcm = N
-    for i in range(N-1 , 0, -1):
+    # time complexity: O(n)
+    natural_nubers = 4   
+    lcm = natural_nubers
+    for i in range(natural_nubers-1 , 0, -1):
         if lcm % i != 0:
             lcm = find_lcm(lcm, i)
 
@@ -10,7 +11,7 @@ def main():
 
 
 def find_lcm(num1, num2):
-    # O(1)
+    # time complexity O(1)
     return (num1 * num2) / find_hcf(num1, num2)
 
 
