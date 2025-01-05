@@ -1,0 +1,25 @@
+new algorith to find hcf between any two numbers:
+let a, b be two numbers such that a >= b
+
+input: a,b
+output: hcf of a and b
+hcf(a,b):
+    if a%b == 0 then
+         return b as the hcf
+    else:
+    factor = find_factor(a/b):  # 
+    hcf = b / factor
+    
+
+find_factor(quotient):
+    if quotient is an integer
+        return 1
+
+    decimal_part = quotient % 1
+    factor = 1 / decimal_part
+    if factor is approximately an integer:
+        return factor
+    else:
+        return factor * find_factor(factor)
+
+        

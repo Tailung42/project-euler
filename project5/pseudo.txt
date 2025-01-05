@@ -30,27 +30,4 @@ pseudocode 1:
 
 
 
-new algorith to find hcf between any two numbers:
-    let a, b be two numbers such that a <= b
-    input: a,b
-    output: hcf(a,b)
 
-    if b%a == 0 then
-         return a as the hcf
-    else:
-    factor = integer_factor(b/a):  # integer factor of a decimal number is 
-    hcf = a / factor
-    
-
-    integer_factor(quotient):
-        if quotient is an integer
-            return 1
-
-        decimal_part = quotient % 1
-        int_factor = 1 / decimal_part
-        if quotient * int_factor is approximately an integer:
-            return int_factor
-        else:
-            return int_factor * integer_factor(quotient* int_factor)
-
-        
