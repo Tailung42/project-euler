@@ -13,15 +13,14 @@ def my_hcf(num1, num2):
 
 def find_factor(num):
     global step  
-    step += 1
-    if num.is_integer():
-        return 1
 
-    factor = 1/ (num % 1)
-
-    if approximately_integer(factor):
-        return round(factor)
-    return round(factor * find_factor(factor))
+    product = 1
+    while not approximately_integer(num):
+        print(product)
+        step += 1
+        num = 1 / (num % 1)
+        product *= num
+    return round(product)
 
 
 def approximately_integer(num):
@@ -51,6 +50,6 @@ def find_hcf(num1, num2):
     return find_hcf(num2, num1%num2)
 
         
-# if __name__ == "__main__":
-    # my_hcf(int(sys.argv[1]), int(sys.argv[2]))
+if __name__ == "__main__":
+    my_hcf(int(sys.argv[1]), int(sys.argv[2]))
     # euclidian_hcf(int(sys.argv[1]), int(sys.argv[2]))
