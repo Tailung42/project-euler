@@ -7,7 +7,7 @@ def hcf(num1 = 1000, num2 = 3):
         print(num1)
         return num1
     factor = integer_factor(num2/num1)
-    print(round( num1 / factor))
+    print(round( num2 / factor))
 
 
 def integer_factor(quotient):
@@ -18,12 +18,12 @@ def integer_factor(quotient):
     decimal_part = quotient % 1
     int_factor = 1 / decimal_part
     print(f"multiplying factor {int_factor}")
-    print( "supposed integer " + str(int_factor* quotient) + "\n")
-    if approximately_integer(int_factor , 0.001):
-        return int_factor
-    else: 
-
-        return int_factor * integer_factor(quotient * int_factor)
+    product = int_factor * quotient
+    print( "supposed integer " + str(product) + "\n")
+    if approximately_integer(product , 0.00001):
+        return product
+    else:   
+        return integer_factor(product)
 
 
 def approximately_integer(num, tolerence):
