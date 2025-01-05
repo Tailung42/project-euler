@@ -11,6 +11,9 @@ hcf(a,b):
     hcf = b / factor
     
 
+
+
+find_factor() returns the smallest INTEGER which when multiplies a decimal gives another INTEGER
 find_factor(quotient):
     if quotient is an integer
         return 1
@@ -23,3 +26,14 @@ find_factor(quotient):
         return factor * find_factor(factor)
 
         
+
+
+non recurssive way to find factor:
+
+find_factor(quotient):
+    product = 1
+
+    while not(quotient is approximately integer):
+        quotient = 1 / (quotient %1)   # find a potential number which when multiplied to quotient gives an integer
+        product = product * quotient
+    return product
