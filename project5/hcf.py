@@ -12,11 +12,9 @@ def my_hcf(num1, num2):
     print(f'steps {step}')
 
 def find_factor(num):
-    global step  
-
+    global step
     product = 1
     while not approximately_integer(num):
-        print(product)
         step += 1
         num = 1 / (num % 1)
         product *= num
@@ -24,7 +22,7 @@ def find_factor(num):
 
 
 def approximately_integer(num):
-    return abs(num - int(num)) < 0.00001
+    return abs(num - int(num)) < 10 **(-5)
 
 
 
@@ -51,5 +49,5 @@ def find_hcf(num1, num2):
 
         
 if __name__ == "__main__":
-    my_hcf(int(sys.argv[1]), int(sys.argv[2]))
-    # euclidian_hcf(int(sys.argv[1]), int(sys.argv[2]))
+    # my_hcf(int(sys.argv[1]), int(sys.argv[2]))
+    euclidian_hcf(int(sys.argv[1]), int(sys.argv[2]))
