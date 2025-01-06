@@ -2,9 +2,9 @@ def main():
     # time complexity: O(n)
     natural_nubers = 4   
     lcm = natural_nubers
-    for i in range(natural_nubers-1 , 0, -1):
-        if lcm % i != 0:
-            lcm = find_lcm(lcm, i)
+    for num in range(natural_nubers-1 , 0, -1):
+        if lcm % num != 0:
+            lcm = find_lcm(lcm, num)
 
     print(int(lcm))
 
