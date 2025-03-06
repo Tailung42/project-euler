@@ -5,6 +5,7 @@ def main():
 
 
 def get_row(content):
+    """returns the no. of rows in the content grid"""
     row = 0
     for char in content:
         if char == " ":
@@ -16,6 +17,7 @@ def get_row(content):
 
 
 def get_column(content):
+    """returns the no. of column in the conent grid"""
     column = 0
 
     for char in content:
@@ -25,6 +27,7 @@ def get_column(content):
 
 
 def get_array(content):
+        """ reads all space separated numbers from string and returns a list of number"""
         row = get_row(content)
         column = get_column(content)
         arr = [0]*(row * column)
@@ -38,10 +41,8 @@ def get_array(content):
                 arr[index] = number
                 number = 0
                 index += 1
-        for num in arr:
-            # print(num, end=" ")
-
-
+        arr[index] = number  # ensures the final number is added to the array
+        return arr
 
 if __name__== "__main__":
     main()
