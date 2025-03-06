@@ -1,9 +1,7 @@
 def main():
     with open("grid.txt", "r") as file:
         content = file.read().strip()
-
-
-
+    get_array(content)
 
 
 def get_row(content):
@@ -17,7 +15,6 @@ def get_row(content):
     return row
 
 
-
 def get_column(content):
     column = 0
 
@@ -27,11 +24,22 @@ def get_column(content):
     return column + 1
 
 
-def give_array(content):
+def get_array(content):
         row = get_row(content)
         column = get_column(content)
+        arr = [0]*(row * column)
+        index = 0
+        number = 0
 
-        grid = [[0]* column]*row
+        for char in content:
+            if char.isnumeric():
+                number = number * 10 + int(char)
+            else:
+                arr[index] = number
+                number = 0
+                index += 1
+        for num in arr:
+            # print(num, end=" ")
 
 
 
