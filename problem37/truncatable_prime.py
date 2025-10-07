@@ -1,63 +1,56 @@
 # GOAL
-# - Find the sum of first three truncatable primes
-# truncatable primes are multidigit primes that  can be truncated from left to right or right to left , and they still remain primes.
-import math
+# - Find the sum of first eleven truncatable primes
+# truncatable primes are multidigit primes that can be truncated from left to right or right to left, and they still remain primes.
 
 
 def main():
-    _num_of_truncatable_primes_ = 11
-    get_two_digit_primes(_num_of_truncatable_primes_)
+    num_of_truncatable_primes = 11
+    primes_list = get_two_digit_primes(num_of_truncatable_primes)
+    print(f"First {num_of_truncatable_primes} truncatable primes: {primes_list}")
+    print(f"\nSum: {sum(primes_list)}")
 
 
 def get_two_digit_primes(num_of_primes):
-    _first_two_digit_num_ = 10
+    first_two_digit_num = 10
     primes_list = list()
-    num = _first_two_digit_num_
+    num = first_two_digit_num
 
     while len(primes_list) < num_of_primes:
         if is_truncatable_prime(num):
             primes_list.append(num)
         num += 1
-        print(num)
+
+    return primes_list
 
 
 def is_truncatable_prime(num):
     if not is_prime(num):
         return False
 
+    # check for truncations from left
     left_truncated_num = truncate_left(num)
-    right_truncated_num = truncate_right(num)
-    print(f" {num}: {left_truncated_num}, {right_truncated_num}")
-    is_prime_from_left = True
-    is_prime_from_right = True
-
     while left_truncated_num > 0:
         if not is_prime(left_truncated_num):
-            is_prime_from_left = False
-            break
+            return False
         if left_truncated_num < 10:
-            if not is_prime(left_truncated_num):
-                is_prime_from_left = False
             break
         left_truncated_num = truncate_left(left_truncated_num)
 
+    # check for truncations from right
+    right_truncated_num = truncate_right(num)
     while right_truncated_num > 0:
         if not is_prime(right_truncated_num):
-            is_prime_from_right = False
-            break
+            return False
         if right_truncated_num < 10:
-            if not is_prime(right_truncated_num):
-                is_prime_from_right = False
-                break
+            break
         right_truncated_num = truncate_right(right_truncated_num)
 
-    return is_prime_from_left and is_prime_from_right
+    return True
 
 
 def is_prime(num):
     if num < 2:
         return False
-
     for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
@@ -65,7 +58,7 @@ def is_prime(num):
 
 
 def truncate_left(num):
-    return num % 10 ** (len(str(num)) - 1)
+    return num % (10 ** (len(str(num)) - 1))
 
 
 def truncate_right(num):
@@ -74,9 +67,3 @@ def truncate_right(num):
 
 if __name__ == "__main__":
     main()
-
-
-# take a number
-# get it's right truncated num
-# get it's left truncated num
-# check if rtn is prime and rtn of (rtn is prime)
