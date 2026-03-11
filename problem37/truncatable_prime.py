@@ -65,5 +65,6 @@ def truncate_right(num):
     return num // 10
 
 
+# nothin
 if __name__ == "__main__":
     main()
